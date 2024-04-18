@@ -1,0 +1,41 @@
+{% set currentPath = app.request.attributes.get('_route') %}
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path("admin_dashboard") }}">Yearbook</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ path("admin_dashboard") }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Moderators
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="{{ path('moderator_list') }}">List</a></li>
+                            <li><a class="dropdown-item" href="{{ path('create_moderator_view') }}">Create new</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if is_granted('ROLE_USER') %}
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-decoration-none text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ app.user.username }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
