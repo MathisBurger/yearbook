@@ -29,7 +29,7 @@ class EntityList
 
     /**
      * All actions on a row
-     * NOTE: Structure must be ['class' => ?, 'label' => ?, 'basePath' => ?]
+     * NOTE: Structure must be ['class' => ?, 'label' => ?, 'basePath' => ??, 'linkPath' => ??]
      *
      * @var array $actions all actions
      */

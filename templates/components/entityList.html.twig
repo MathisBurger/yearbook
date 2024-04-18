@@ -16,9 +16,14 @@
                 <div class="row g-2">
                     {% for action in actions %}
                         <div class="col-2">
-                            <form action="{{ this.getActionPath(action['basePath'], entry['id']) }}" method="post">
-                                <button type="submit" class="btn btn-sm {{ action['class'] }}">{{ action['label'] }}</button>
-                            </form>
+                            {% if array_key_exists('basePath', action) %}
+                                <form action="{{ this.getActionPath(action['basePath'], entry['id']) }}" method="post">
+                                    <button type="submit" class="btn btn-sm {{ action['class'] }}">{{ action['label'] }}</button>
+                                </form>
+                            {% endif %}
+                            {% if array_key_exists('linkPath', action) %}
+                                    <button href="{{ path(action['linkPath'], {id: entry['id']}) }}" class="btn btn-sm {{ action['class'] }}">{{ action['label'] }}</button>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
