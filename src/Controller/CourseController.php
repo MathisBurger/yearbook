@@ -105,6 +105,12 @@ class CourseController extends AbstractController
         return $this->redirectToRoute('courses_list');
     }
 
+    /**
+     * Deletes a course
+     *
+     * @param int $id The course that should be deleted
+     * @return Response
+     */
     #[Route('/admin/courses/delete/{id}', name: 'courses_delete', methods: ['POST'])]
     public function deleteCourseRequest(int $id): Response {
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
