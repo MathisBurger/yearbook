@@ -23,7 +23,8 @@ class UserFixtures extends Fixture
     {
 
         $admin = (new User())
-            ->setUsername('admin');
+            ->setUsername('admin')
+            ->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->userPasswordHasher->hashPassword($admin, 'admin123'));
         $manager->persist($admin);
         $manager->flush();
