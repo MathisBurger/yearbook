@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            {% for header in this.headers %}
+                <td>{{ header['name'] }}</td>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for entry in this.entries %}
+        <tr>
+            {% for header in this.headers %}
+                <td>{{ entry[header['id']] }}</td>
+            {% endfor %}
+            <td>
+                <div class="row g-2">
+                    {% for action in actions %}
+                        <div class="col-2">
+                            <form action="{{ this.getActionPath(action['basePath'], entry['id']) }}" method="post">
+                                <button type="submit" class="btn btn-sm {{ action['class'] }}">{{ action['label'] }}</button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

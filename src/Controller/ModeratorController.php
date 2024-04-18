@@ -33,9 +33,7 @@ class ModeratorController extends AbstractController
     #[Route('/admin/createModerator', name: 'create_moderator_view', methods: ['GET'])]
     public function createModerator(): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) {
-            return new Response('Access denied', Response::HTTP_FORBIDDEN);
-        }
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $form = $this->createForm(CreateModeratorType::class);
         return $this->render('admin/moderator/create.html.twig', [
             'form' => $form,
@@ -50,9 +48,7 @@ class ModeratorController extends AbstractController
      */
     #[Route('/admin/createModerator', name: 'create_moderator_form', methods: ['POST'])]
     public function createModeratorPost(Request $request): Response {
-        if (!$this->isGranted('ROLE_ADMIN')) {
-            return new Response('Access denied', Response::HTTP_FORBIDDEN);
-        }
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $user = new User();
         $user->setRoles(['ROLE_MODERATOR']);
         $form = $this->createForm(CreateModeratorType::class, $user);
@@ -88,6 +84,47 @@ class ModeratorController extends AbstractController
     #[Route('/admin/moderatorList', name: 'moderator_list', methods: ['GET'])]
     public function listModerators(): Response
     {
-        return $this->render('admin/moderator/list.html.twig', []);
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('admin/moderator/list.html.twig', [
+            'headers' => User::getHeaders(),
+            'moderators' => $this->entityManager->getRepository(User::class)->findAll(),
+            'actions' => [
+                ['class' => 'btn-danger', 'label' => 'Delete', 'basePath' => '/admin/moderator/delete'],
+                ['class' => 'btn-primary', 'label' => 'Elevate', 'basePath' => '/admin/moderator/elevatePermissions']
+            ]
+        ]);
+    }
+
+    /**
+     * Deletes a specific user
+     *
+     * @param int $id The ID of the user
+     * @return Response
+     */
+    #[Route('/admin/moderator/delete/{id}', name: 'moderator_delete', methods: ['POST'])]
+    public function deleteModerator(int $id): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $moderator = $this->entityManager->getRepository(User::class)->find($id);
+        $this->entityManager->remove($moderator);
+        $this->entityManager->flush();
+        return $this->redirectToRoute('moderator_list');
+    }
+
+    /**
+     * Elevates user permissions
+     *
+     * @param int $id The ID of the user
+     * @return Response
+     */
+    #[Route('/admin/moderator/elevatePermissions/{id}', name: 'moderator_elevate', methods: ['POST'])]
+    public function elevatePermissions(int $id): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $moderator = $this->entityManager->getRepository(User::class)->find($id);
+        $moderator->setRoles(['ROLE_ADMIN']);
+        $this->entityManager->persist($moderator);
+        $this->entityManager->flush();
+        return $this->redirectToRoute('moderator_list');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Twig\Components\EntityListable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -13,12 +14,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User extends AbstractEntity implements UserInterface, PasswordAuthenticatedUserInterface, EntityListable
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     #[ORM\Column(length: 180)]
     private ?string $username = null;
@@ -34,16 +31,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
-
-    /**
-     * Gets the ID of the user
-     *
-     * @return int|null The ID of the user
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * Gets the username of the user
@@ -132,5 +119,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    function getEntityListEntry(): array
+    {
+        return [
+            'id' => $this->id,
+            'username' => $this->username,
+            'roles' => AbstractEntity::valueToString($this->roles)
+        ];
+    }
+
+    static function getHeaders(): array
+    {
+        return [
+            [
+                'name' => 'Username',
+                'id' => 'username'
+            ],
+            [
+                'name' => 'Rollen',
+                'id' => 'roles'
+            ]
+        ];
     }
 }

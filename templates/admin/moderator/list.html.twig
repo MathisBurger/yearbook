@@ -4,5 +4,10 @@
     {{ parent() }}
     <div class="container">
         <h1>Moderators</h1>
+        {{ component('EntityList', {
+            headers: headers,
+            entities: moderators,
+            actions: actions
+        }) }}
     </div>
 {% endblock %}
