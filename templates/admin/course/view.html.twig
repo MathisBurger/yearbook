@@ -3,6 +3,21 @@
 {% block body %}
     {{ parent() }}
     <div class="container">
-        <h1>Details {{ id }}</h1>
+        <h1>{{ name }}</h1>
+        <form action="{{ path("member_create_view", {id: id}) }}" method="get">
+            <button class="btn btn-primary" type="submit">New member</button>
+        </form>
+        <h3>Students</h3>
+        {{ component('EntityList', {
+            headers: headers,
+            entities: students,
+            actions: actions
+        }) }}
+        <h3>Professors</h3>
+        {{ component('EntityList', {
+            headers: headers,
+            entities: professors,
+            actions: actions
+        }) }}
     </div>
 {% endblock %}

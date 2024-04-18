@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CourseRepository;
+use App\Twig\Components\EntityListable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * A course that is registered
  */
 #[ORM\Entity(repositoryClass: CourseRepository::class)]
-class Course extends AbstractEntity
+class Course extends AbstractEntity implements EntityListable
 {
     /**
      * The name of the course
@@ -112,5 +113,33 @@ class Course extends AbstractEntity
             $this->members->removeElement($member);
         }
         return $this;
+    }
+
+    function getEntityListEntry(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'members' => $this->getMembers()->count(),
+        ];
+    }
+
+    static function getHeaders(): array
+    {
+        return [
+            [
+                'id' => 'name',
+                'name' => 'Name',
+            ],
+            [
+                'id' => 'description',
+                'name' => 'Description',
+            ],
+            [
+                'id' => 'members',
+                'name' => 'Members',
+            ]
+        ];
     }
 }

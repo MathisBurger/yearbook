@@ -4,14 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added simple structure of course pages">
-      <change afterPath="$PROJECT_DIR$/src/Entity/Course.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/CourseMember.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/MemberMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CourseMemberRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CourseRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/MemberMessageRepository.php" afterDir="false" />
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added entities and migrations">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20240418182402.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/CourseMemberFormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/CourseType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/CourseService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/MemberService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/course/create.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/member/create.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/member/view.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ModeratorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModeratorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/CourseMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CourseMember.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CreateModeratorType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CreateModeratorType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/EntityList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/EntityList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/course/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/course/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/course/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/course/view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/entityList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/entityList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/navbar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +237,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="20884000" />
+      <workItem from="1713437516429" duration="26052000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -290,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713458519790</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[TASK] Added entities and migrations">
+      <option name="closed" value="true" />
+      <created>1713460271371</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713460271371</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +337,7 @@
     <MESSAGE value="[TASK] Added simple admin UI" />
     <MESSAGE value="[TASK] Added entityList.html.twig" />
     <MESSAGE value="[TASK] Added simple structure of course pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added simple structure of course pages" />
+    <MESSAGE value="[TASK] Added entities and migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added entities and migrations" />
   </component>
 </project>

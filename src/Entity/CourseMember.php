@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CourseMemberRepository;
+use App\Twig\Components\EntityListable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * A member of a course
  */
 #[ORM\Entity(repositoryClass: CourseMemberRepository::class)]
-class CourseMember extends AbstractEntity
+class CourseMember extends AbstractEntity implements EntityListable
 {
     /**
      * A student
@@ -31,12 +32,13 @@ class CourseMember extends AbstractEntity
     /**
      * @var string|null The role of the member
      */
-    private ?string $role = null;
+    #[ORM\Column(length: 255)]
+    private ?string $role = CourseMember::ROLE_STUDENT;
 
     /**
      * @var Course|null The course of the member
      */
-    #[ORM\ManyToOne(targetEntity: Course::class, inversedBy: 'members')]
+    #[ORM\ManyToOne(targetEntity: Course::class, cascade: ['persist'], inversedBy: 'members')]
     private ?Course  $course = null;
 
     /**
@@ -144,5 +146,28 @@ class CourseMember extends AbstractEntity
             $this->messages->removeElement($message);
         }
         return $this;
+    }
+
+    function getEntityListEntry(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'messages' => $this->getMessages()->count(),
+        ];
+    }
+
+    static function getHeaders(): array
+    {
+        return [
+            [
+                'id' => 'name',
+                'name' => 'Name'
+            ],
+            [
+                'id' => 'messages',
+                'name' => 'Messages'
+            ]
+        ];
     }
 }

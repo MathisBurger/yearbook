@@ -1,0 +1,14 @@
+{% extends 'adminBase.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <h1>Create Course Member</h1>
+        <h5>Course: {{ courseName }}</h5>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        {{ form(form) }}
+    </div>
+{% endblock %}

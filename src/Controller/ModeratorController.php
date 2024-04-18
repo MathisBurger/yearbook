@@ -53,8 +53,6 @@ class ModeratorController extends AbstractController
         $user->setRoles(['ROLE_MODERATOR']);
         $form = $this->createForm(CreateModeratorType::class, $user);
         $form->handleRequest($request);
-        echo $form->isSubmitted();
-        echo $form->isValid();
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             if ($data instanceof User) {

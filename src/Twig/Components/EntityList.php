@@ -2,8 +2,7 @@
 
 namespace App\Twig\Components;
 
-use ReflectionClass;
-use ReflectionException;
+
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
@@ -52,12 +51,24 @@ class EntityList
     /**
      * Gets the action path
      *
-     * @param string $basePath The basepath of the action
+     * @param string $basePath The base path of the action
      * @param int $id The ID of the entity
      * @return string The full path
      */
     public function getActionPath(string $basePath, int $id): string
     {
         return $basePath . "/" . $id;
+    }
+
+    /**
+     * Checks if an array key exists
+     *
+     * @param string $key The key
+     * @param array $array The array
+     * @return bool
+     */
+    public function keyExists(string $key, array $array): bool
+    {
+        return array_key_exists($key, $array);
     }
 }
