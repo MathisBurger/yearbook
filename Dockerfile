@@ -16,7 +16,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY . .
 RUN composer install
 RUN chown -R www-data:www-data /var/www/html
-
+RUN mkdir /var/www/html/var
+RUN chown -R www-data:www-data /var/www/html/var
 
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
 RUN touch .env
