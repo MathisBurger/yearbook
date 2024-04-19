@@ -21,10 +21,13 @@ RUN touch .env
 RUN chmod +x initEnv.sh
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-ENV APACHE_RUN_USER=root
+ENV APACHE_RUN_USER=www-data
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 RUN mv -f ./000-default.conf /etc/apache2/sites-enabled/000-default.conf
-RUN chown www-data:www-data /etc/apache2/sites-enabled/000-default.conf
+RUN chown -R www-data:www-data /etc/apache2/sites-enabled/000-default.conf
+RUN chown -R www-data:www-data /var/www/html
+RUN mkdir /var/www/html/var
+RUN chown -R www-data:www-data /var/www/html/var
 EXPOSE 80
 CMD ./initEnv.sh && composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
