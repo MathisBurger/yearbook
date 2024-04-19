@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Course;
 use App\Entity\CourseMember;
-use App\Entity\User;
 use App\Form\CourseType;
 use App\Service\CourseService;
 use Doctrine\ORM\EntityManagerInterface;
