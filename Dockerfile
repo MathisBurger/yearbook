@@ -11,14 +11,14 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-WORKDIR /app
+WORKDIR /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . .
 RUN composer install
+RUN chown -R www-data:www-data /var/www/html
 
 
-ENV APP_ENV=prod
-ENV DATABASE_URL="postgresql://postgres:mysecretpassword@127.0.0.1:5432/yearbook?serverVersion=16&charset=utf8"
-
+ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
+RUN touch .env
 EXPOSE 80
-CMD composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
+CMD ./initEnv.sh && composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
