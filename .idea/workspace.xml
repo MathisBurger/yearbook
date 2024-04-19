@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated docker setup">
-      <change afterPath="$PROJECT_DIR$/initEnv.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/000-default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initEnv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/initEnv.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +221,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="50866000" />
+      <workItem from="1713437516429" duration="52567000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -422,7 +423,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713539530550</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="[TASK] Updated docker setup">
+      <option name="closed" value="true" />
+      <created>1713540579201</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1713540579201</updated>
+    </task>
+    <task id="LOCAL-00027" summary="[TASK] Updated docker setup">
+      <option name="closed" value="true" />
+      <created>1713540813428</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713540813428</updated>
+    </task>
+    <task id="LOCAL-00028" summary="[TASK] Updated docker setup">
+      <option name="closed" value="true" />
+      <created>1713541770878</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1713541770878</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
