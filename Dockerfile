@@ -20,6 +20,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
 RUN touch .env
+RUN chmod +x initEnv.sh
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
