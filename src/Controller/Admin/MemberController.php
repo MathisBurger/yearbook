@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Course;
 use App\Entity\CourseMember;
+use App\Entity\MemberMessage;
 use App\Form\CourseMemberFormType;
 use App\Service\MemberService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,10 +27,22 @@ class MemberController extends AbstractController
         $this->memberService = $memberService;
     }
 
+    /**
+     * Gets the details of a member
+     *
+     * @param int $id The ID of the member
+     * @return Response
+     */
     #[Route('/admin/member/details/{id}', name: 'admin_member_details')]
     public function memberDetails(int $id): Response
     {
-        return $this->render('admin/member/view.html.twig', []);
+        $member = $this->memberService->getMember($id);
+        return $this->render('admin/member/view.html.twig', [
+            'name' => $member->getName(),
+            'messages' => $member->getMessages()->toArray(),
+            'headers' => MemberMessage::getHeaders(),
+            'actions' => []
+        ]);
     }
 
     /**

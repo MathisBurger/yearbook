@@ -3,6 +3,11 @@
 {% block body %}
     {{ parent() }}
     <div class="container">
-        <h1>Mitglied</h1>
+        <h1>{{ name }}</h1>
+        {{ component('EntityList', {
+            headers: headers,
+            entities: messages,
+            actions: actions
+        }) }}
     </div>
 {% endblock %}

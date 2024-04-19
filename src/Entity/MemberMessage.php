@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\MemberMessageRepository;
+use App\Twig\Components\EntityListable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A message on a member of a course
  */
 #[ORM\Entity(repositoryClass: MemberMessageRepository::class)]
-class MemberMessage extends AbstractEntity
+class MemberMessage extends AbstractEntity implements EntityListable
 {
 
     /**
@@ -65,5 +66,20 @@ class MemberMessage extends AbstractEntity
     public function setMember(?CourseMember $member): self {
         $this->member = $member;
         return $this;
+    }
+
+    function getEntityListEntry(): array
+    {
+        return ['message' => $this->getMessage()];
+    }
+
+    static function getHeaders(): array
+    {
+        return [
+            [
+                'id' => 'message',
+                'name' => 'Message'
+            ]
+        ];
     }
 }

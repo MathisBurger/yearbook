@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added default course view">
-      <change afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/MemberMessageType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/courses/member/createMessage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/CourseController.php" afterDir="false" />
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added member message creation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ModeratorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ModeratorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MemberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MemberService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/MemberMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MemberMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/member/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/member/view.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +221,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="32046000" />
+      <workItem from="1713437516429" duration="35143000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -330,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713519523396</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="[TASK] Added member message creation">
+      <option name="closed" value="true" />
+      <created>1713520944882</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713520944882</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +366,7 @@
     <MESSAGE value="[TASK] Updated documentation" />
     <MESSAGE value="[TASK] Moved admin controllers to new package" />
     <MESSAGE value="[TASK] Added default course view" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added default course view" />
+    <MESSAGE value="[TASK] Added member message creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added member message creation" />
   </component>
 </project>
