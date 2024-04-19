@@ -20,5 +20,9 @@ RUN chown -R www-data:www-data /var/www/html
 
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
 RUN touch .env
+
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 EXPOSE 80
 CMD ./initEnv.sh && composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
