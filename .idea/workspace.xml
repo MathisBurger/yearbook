@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated component names" />
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated component names">
+      <change beforePath="$PROJECT_DIR$/initEnv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/initEnv.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,7 +218,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="54377000" />
+      <workItem from="1713437516429" duration="54831000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -490,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713544072517</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="[TASK] Updated component names">
+      <option name="closed" value="true" />
+      <created>1713544426317</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713544426317</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
