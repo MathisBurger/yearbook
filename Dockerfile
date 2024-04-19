@@ -1,20 +1,15 @@
-FROM php:8.2-cli
+FROM tobi312/php:8.2-apache AS final
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libssl-dev zlib1g-dev curl git unzip netcat-traditional libxml2-dev libpq-dev libzip-dev && \
-    pecl install apcu && \
-    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql && \
-    docker-php-ext-install -j$(nproc) zip opcache intl pdo_pgsql pgsql && \
-    docker-php-ext-enable apcu pdo_pgsql sodium && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /var/www
-
+WORKDIR /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY . .
 RUN composer install
-ENV APP_ENV=prod
-ENV DATABASE_URl="postgresql://postgres:mysecretpassword@127.0.0.1:5432/yearbook?serverVersion=16&charset=utf8"
-CMD php bin/console doctrine:migrations:migrate ; cd public; php -S 0.0.0.0:8000
 
-EXPOSE 8000
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+ENV APP_ENV=prod
+ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
+
+EXPOSE 80

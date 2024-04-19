@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  ###> doctrine/doctrine-bundle ###
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: yearbook
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: postgres
+    volumes:
+      - database_data:/var/lib/postgresql/data:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+  server:
+    depends_on:
+      - database
+    image: ghcr.io/mathisburger/yearbook:latest
+    ports:
+      - "80:8000"
+    labels:
+      - "traefik.http.routers.yearbook.rule=Host(`ec2-3-79-189-216.eu-central-1.compute.amazonaws.com`)"
+###< doctrine/doctrine-bundle ###
+
+volumes:
+  ###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
