@@ -26,7 +26,7 @@ class MemberController extends AbstractController
         $this->memberService = $memberService;
     }
 
-    #[Route('/admin/member/details/{id}', name: 'member_details')]
+    #[Route('/admin/member/details/{id}', name: 'admin_member_details')]
     public function memberDetails(int $id): Response
     {
         return $this->render('admin/member/view.html.twig', []);
@@ -39,7 +39,7 @@ class MemberController extends AbstractController
      * @param Request $request The request
      * @return Response
      */
-    #[Route('/admin/member/create/{id}', name: 'member_create_view', methods: ['GET'])]
+    #[Route('/admin/member/create/{id}', name: 'admin_member_create_view', methods: ['GET'])]
     public function createMemberView(int $id): Response
     {
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
@@ -59,7 +59,7 @@ class MemberController extends AbstractController
      * @param Request $request The request
      * @return Response
      */
-    #[Route('/admin/member/create/{id}', name: 'member_create', methods: ['POST'])]
+    #[Route('/admin/member/create/{id}', name: 'admin_member_create', methods: ['POST'])]
     public function createMember(int $id, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
@@ -85,7 +85,7 @@ class MemberController extends AbstractController
      * @param Request $request The request
      * @return Response
      */
-    #[Route('/admin/member/delete/{id}', name: 'member_delete', methods: ['POST'])]
+    #[Route('/admin/member/delete/{id}', name: 'admin_member_delete', methods: ['POST'])]
     public function deleteMember(int $id, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
@@ -93,7 +93,7 @@ class MemberController extends AbstractController
         try {
             $this->memberService->deleteMember($id);
         } catch (\Exception $e) {}
-        return $this->redirectToRoute('course_view', ['id' => $member->getCourse()->getId()]);
+        return $this->redirectToRoute('admin_course_view', ['id' => $member->getCourse()->getId()]);
     }
 
 }

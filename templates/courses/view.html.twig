@@ -1,12 +1,8 @@
-{% extends 'adminBase.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ parent() }}
     <div class="container">
         <h1>{{ name }}</h1>
-        <form action="{{ path("admin_member_create_view", {id: id}) }}" method="get">
-            <button class="btn btn-primary" type="submit">New member</button>
-        </form>
         <h3>Students</h3>
         {{ component('EntityList', {
             headers: headers,

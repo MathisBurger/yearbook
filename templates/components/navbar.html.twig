@@ -1,33 +1,42 @@
-{% set currentPath = app.request.attributes.get('_route') %}
-
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path("admin_dashboard") }}">Yearbook</a>
+        <a class="navbar-brand" href="{{ path("landing_page") }}">Yearbook</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path("admin_dashboard") }}">Home</a>
+                    {% if is_granted('ROLE_MODERATOR') %}
+                        <a class="nav-link" aria-current="page" href="{{ path("admin_dashboard") }}">Home</a>
+                    {% else %}
+                        <a class="nav-link" aria-current="page" href="{{ path("landing_page") }}">Home</a>
+                    {% endif %}
+
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Courses
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="{{ path("courses_list") }}">List</a></li>
-                        <li><a class="dropdown-item" href="{{ path('courses_new_view') }}">Create new</a></li>
-                    </ul>
-                </li>
+                {% if is_granted('ROLE_MODERATOR') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="{{ path("admin_courses_list") }}">List</a></li>
+                            <li><a class="dropdown-item" href="{{ path('admin_courses_new_view') }}">Create new</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ path("courses_view") }}">Courses</a>
+                    </li>
+                {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Moderators
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="{{ path('moderator_list') }}">List</a></li>
-                            <li><a class="dropdown-item" href="{{ path('create_moderator_view') }}">Create new</a></li>
+                            <li><a class="dropdown-item" href="{{ path('admin_moderator_list') }}">List</a></li>
+                            <li><a class="dropdown-item" href="{{ path('admin_create_moderator_view') }}">Create new</a></li>
                         </ul>
                     </li>
                 {% endif %}
