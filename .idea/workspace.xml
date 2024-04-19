@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated docker">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yearbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yearbook.iml" afterDir="false" />
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated docker setup">
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +218,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="46798000" />
+      <workItem from="1713437516429" duration="47111000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -361,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713533278747</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[TASK] Updated docker setup">
+      <option name="closed" value="true" />
+      <created>1713536612401</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713536612401</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,6 +399,7 @@
     <MESSAGE value="[TASK] Added message details view" />
     <MESSAGE value="[TASK] Added docker build" />
     <MESSAGE value="[TASK] Updated docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Updated docker" />
+    <MESSAGE value="[TASK] Updated docker setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Updated docker setup" />
   </component>
 </project>
