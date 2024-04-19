@@ -27,7 +27,5 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 RUN mv -f ./000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN chown -R www-data:www-data /etc/apache2/sites-enabled/000-default.conf
 RUN chown -R www-data:www-data /var/www/html
-RUN mkdir /var/www/html/var
-RUN chown -R www-data:www-data /var/www/html/var
 EXPOSE 80
-CMD ./initEnv.sh && composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
+CMD ./initEnv.sh && composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && chown -R www-data:www-data /var/www/html/var && apache2-foreground
