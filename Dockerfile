@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
 RUN apt-get update -y && apt-get install -y libmcrypt-dev
 
@@ -21,4 +21,4 @@ ENV APP_ENV=prod
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@127.0.0.1:5432/yearbook?serverVersion=16&charset=utf8"
 
 EXPOSE 8000
-CMD composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && php bin/console server:run 0.0.0.0:8000
+CMD composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
