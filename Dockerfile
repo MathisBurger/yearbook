@@ -15,6 +15,6 @@ COPY . .
 RUN composer install
 ENV APP_ENV=prod
 ENV DATABASE_URl="postgresql://postgres:mysecretpassword@127.0.0.1:5432/yearbook?serverVersion=16&charset=utf8"
-CMD php bin/console doctrine:migrations:migrate ;  php bin/console server:run 0.0.0.0:8000
+CMD php bin/console doctrine:migrations:migrate ; cd public; php -S 0.0.0.0:8000
 
 EXPOSE 8000
