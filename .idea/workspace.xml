@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added member message creation">
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added message details view">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/docker.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/MemberMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MemberMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/member/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/member/view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yearbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yearbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +222,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="35143000" />
+      <workItem from="1713437516429" duration="36998000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -335,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713520944882</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[TASK] Added message details view">
+      <option name="closed" value="true" />
+      <created>1713524286218</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713524286218</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +376,7 @@
     <MESSAGE value="[TASK] Moved admin controllers to new package" />
     <MESSAGE value="[TASK] Added default course view" />
     <MESSAGE value="[TASK] Added member message creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added member message creation" />
+    <MESSAGE value="[TASK] Added message details view" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added message details view" />
   </component>
 </project>
