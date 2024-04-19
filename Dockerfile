@@ -20,5 +20,5 @@ RUN composer install
 ENV APP_ENV=prod
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@127.0.0.1:5432/yearbook?serverVersion=16&charset=utf8"
 
-EXPOSE 8000
+EXPOSE 80
 CMD composer require symfony/runtime && php bin/console doctrine:migrations:migrate --no-interaction && apache2-foreground
