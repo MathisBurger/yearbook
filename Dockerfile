@@ -15,19 +15,13 @@ WORKDIR /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . .
 RUN composer install
-RUN chown -R www-data:www-data /var/www/html
-RUN mkdir /var/www/html/var
-RUN mkdir /var/www/html/var/cache
-RUN mkdir /var/www/html/var/log
-RUN chown -R www-data:www-data /var/www/html/var
-RUN chown -R www-data:www-data /var/www/html/var/cache
-RUN chown -R www-data:www-data /var/www/html/var/log
 
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
 RUN touch .env
 RUN chmod +x initEnv.sh
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+ENV APACHE_RUN_USER=root
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 RUN mv -f ./000-default.conf /etc/apache2/sites-enabled/000-default.conf
