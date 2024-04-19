@@ -17,7 +17,11 @@ COPY . .
 RUN composer install
 RUN chown -R www-data:www-data /var/www/html
 RUN mkdir /var/www/html/var
+RUN mkdir /var/www/html/var/cache
+RUN mkdir /var/www/html/var/log
 RUN chown -R www-data:www-data /var/www/html/var
+RUN chown -R www-data:www-data /var/www/html/var/cache
+RUN chown -R www-data:www-data /var/www/html/var/log
 
 ENV DATABASE_URL="postgresql://postgres:mysecretpassword@database:5432/yearbook?serverVersion=16&charset=utf8"
 RUN touch .env

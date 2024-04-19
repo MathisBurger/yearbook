@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Updated component names">
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[BUGFIX] Fixed some bugs">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/initEnv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/initEnv.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +219,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="54831000" />
+      <workItem from="1713437516429" duration="55481000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -500,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713544426317</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="[BUGFIX] Fixed some bugs">
+      <option name="closed" value="true" />
+      <created>1713545081808</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1713545081808</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,6 +546,7 @@
     <MESSAGE value="[TASK] Updated docker" />
     <MESSAGE value="[TASK] Updated docker setup" />
     <MESSAGE value="[TASK] Updated component names" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Updated component names" />
+    <MESSAGE value="[BUGFIX] Fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="[BUGFIX] Fixed some bugs" />
   </component>
 </project>
