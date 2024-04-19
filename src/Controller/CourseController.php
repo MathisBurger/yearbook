@@ -55,7 +55,7 @@ class CourseController extends AbstractController
             'students' => $course->getMembers()->filter(fn (CourseMember $member) => $member->getRole() === CourseMember::ROLE_STUDENT)->toArray(),
             'professors' => $course->getMembers()->filter(fn (CourseMember $member) => $member->getRole() === CourseMember::ROLE_PROFESSOR)->toArray(),
             'actions' => [
-                ['class' => 'btn-primary', 'label' => 'Create message'],
+                ['class' => 'btn-primary', 'label' => 'New', 'linkPath' => 'member_create_message_view'],
             ]
         ]);
     }

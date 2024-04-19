@@ -34,7 +34,7 @@ class ModeratorController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $form = $this->createForm(CreateModeratorType::class);
-        return $this->render('admin/moderator/create.html.twig', [
+        return $this->render('admin/moderator/createMessage.html.twig', [
             'form' => $form,
         ]);
     }
@@ -67,7 +67,7 @@ class ModeratorController extends AbstractController
                 return $this->redirectToRoute('admin_moderator_list');
             }
         }
-        return $this->render('admin/moderator/create.html.twig', [
+        return $this->render('admin/moderator/createMessage.html.twig', [
             'form' => $form,
             'error' => 'Error during moderator creation'
         ]);

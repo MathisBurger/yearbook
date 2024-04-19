@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\CourseMember;
+use App\Entity\MemberMessage;
 use App\Repository\CourseMemberRepository;
 use App\Repository\CourseRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,6 +24,17 @@ class MemberService
         $this->entityManager = $entityManager;
         $this->courseRepository = $courseRepository;
         $this->courseMemberRepository = $courseMemberRepository;
+    }
+
+    /**
+     * Gets a course member by ID
+     *
+     * @param int $id The ID of the member
+     * @return CourseMember
+     */
+    public function getMember(int $id): CourseMember
+    {
+        return $this->courseMemberRepository->find($id);
     }
 
     /**
@@ -64,5 +76,29 @@ class MemberService
             return;
         }
         throw new BadRequestException();
+    }
+
+    /**
+     * Creates a new member message
+     *
+     * @param CourseMember $member The course member
+     * @param FormInterface $form The form containing the data
+     * @return void
+     */
+    public function createMemberMessage(CourseMember $member, FormInterface $form) {
+        $message = new MemberMessage();
+        if ($form->isSubmitted() && $form->isValid() && $message !== null) {
+            $data = $form->getData();
+            if ($data instanceof MemberMessage) {
+                $message = $data;
+                $message->setMember($member);
+                $this->entityManager->persist($message);
+                $member->addMessage($message);
+                $this->entityManager->persist($message);
+                $this->entityManager->flush();
+                return;
+            }
+        }
+        throw new BadRequestException("Invalid data");
     }
 }

@@ -45,7 +45,7 @@ class MemberController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
         $course = $this->entityManager->getRepository(Course::class)->find($id);
         $form = $this->createForm(CourseMemberFormType::class);
-        return $this->render('admin/member/create.html.twig', [
+        return $this->render('admin/member/createMessage.html.twig', [
             'form' => $form,
             'error' => null,
             'courseName' => $course->getName()
@@ -70,7 +70,7 @@ class MemberController extends AbstractController
             $this->memberService->createMember($id, $form);
             return $this->redirectToRoute('course_view', ['id' => $id]);
         } catch (\Exception $e) {
-            return $this->render('admin/member/create.html.twig', [
+            return $this->render('admin/member/createMessage.html.twig', [
                 'form' => $form,
                 'error' => $e->getMessage(),
                 'courseName' => $course->getName()

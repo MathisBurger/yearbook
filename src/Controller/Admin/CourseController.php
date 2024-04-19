@@ -75,7 +75,7 @@ class CourseController extends AbstractController
     #[Route('/admin/courses/new', name: 'admin_courses_new_view', methods: ['GET'])]
     public function createCourseNewView(): Response {
         $this->denyAccessUnlessGranted('ROLE_MODERATOR');
-        return $this->render('admin/course/create.html.twig', [
+        return $this->render('admin/course/createMessage.html.twig', [
             'form' => $this->createForm(CourseType::class),
             'error' => null,
         ]);
@@ -96,7 +96,7 @@ class CourseController extends AbstractController
         try {
             $this->courseService->createCourse($form);
         } catch (BadRequestException $badRequestException) {
-            return $this->render('admin/course/create.html.twig', [
+            return $this->render('admin/course/createMessage.html.twig', [
                 'form' => $form->createView(),
                 'error' => $badRequestException->getMessage(),
             ]);

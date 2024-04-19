@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Moved admin controllers to new package">
-      <change afterPath="$PROJECT_DIR$/src/Controller/CourseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/LandingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/adminNavbar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/courses/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/courses/view.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/landing/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8dd87d6b-00ea-4d04-bb1a-c9010b55859c" name="Changes" comment="[TASK] Added default course view">
+      <change afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/MemberMessageType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/courses/member/createMessage.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/CourseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/MemberController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ModeratorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ModeratorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/course/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/course/view.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminBase.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/MemberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MemberService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +224,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713437515736</updated>
-      <workItem from="1713437516429" duration="30715000" />
+      <workItem from="1713437516429" duration="32046000" />
     </task>
     <task id="LOCAL-00001" summary="[TASK] Initial commit">
       <option name="closed" value="true" />
@@ -329,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713517963585</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[TASK] Added default course view">
+      <option name="closed" value="true" />
+      <created>1713519523396</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713519523396</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +360,7 @@
     <MESSAGE value="[TASK] Added member view support" />
     <MESSAGE value="[TASK] Updated documentation" />
     <MESSAGE value="[TASK] Moved admin controllers to new package" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Moved admin controllers to new package" />
+    <MESSAGE value="[TASK] Added default course view" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] Added default course view" />
   </component>
 </project>
